@@ -43,5 +43,20 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    # # Step 1: this is an SLL so we can only go one way
+    # I can set prev to be None like how its shown in the instructions
+    previous_node = None
+    # step 2: make a variable for the current node (like in contains) 
+    # and start with the head.
+    current = self.head
+
+    # step 3: loop until list is reversed
+    while current is not None:
+      # step 4: grab next_node off of current
+      next_node = current.next_node
+      # step 5: set current's next_node to prev
+      current.next_node = previous_node
+      # step 6: update previous_node to current and current to next_node
+      previous_node, current = current, next_node 
+    # step 7: set new head as former tail
+    self.head = previous_node 
